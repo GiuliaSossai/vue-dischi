@@ -1,17 +1,14 @@
 <template>
    <div>
-      <div v-if="loaded" class="row">
-         <!-- v-for="(item, index) in discs"
-            :key="index"
-            :disc="disc" -->
+      <div v-if="loaded"  class="row">
          <Disc 
-            v-for="(item, index) in discs"
+            v-for="(disc, index) in discs"
             :key="index"
-            
-         />
-         
+            :disc="disc"
+         />  
       </div>
-      <Loading textLoader="Loading Music..." v-else />
+
+      <Loading v-else textLoader="Loading Music..."/>   
    </div>
   
 </template>
@@ -31,24 +28,16 @@ export default {
       return{
          discs: [],
          loaded: false,
-         apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
-         //index: ''
+         apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music'
       }
    },
    methods:{
       getApi(){
+         //this.loaded = true;
+
          axios.get(this.apiUrl)
          .then((response) => {
-            console.log('response', response);
-            console.log('data', response.data);
-   
             this.discs = response.data.response;
-            console.log('discs array', this.discs);
-            console.log('oggetto disc', this.discs[0]);
-            
-            console.log('autore oggetto 0:', this.discs[0].author);
-            //console.log('img oggetto 3:', this.discs[this.index].poster);
-            
            
             this.loaded = true;
          })
@@ -64,9 +53,5 @@ export default {
 }
 </script>
 
-<style lang="scss">
-   .row {
-      display: flex;
-      flex-wrap: wrap;
-   }
+<style>
 </style>

@@ -1,14 +1,9 @@
 <template>
   <div class="text-center mb-5 py-3">
-      <!-- <img :src="discs[index].poster" :alt="discs[index].title">
-      <h4 class="text-uppercase font-weight-bold my-2">{{discs[index].title}}</h4>
-      <p class="m-0">{{discs[index].author}}</p>
-      <p class="m-0">{{discs[index].year}}</p> -->
-
-      <img src="https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg" alt="">
-      <h4 class="text-uppercase font-weight-bold my-2">new jersey</h4>
-      <p class="m-0">bon jovi</p>
-      <p class="m-0">1989</p>
+      <img :src="disc.poster" :alt="disc.title">
+      <h4 class="text-uppercase font-weight-bold my-2">{{disc.title}}</h4>
+      <p class="m-0">{{disc.author}}</p>
+      <p class="m-0">{{disc.year}}</p>
   </div>
   
 </template>
@@ -17,8 +12,7 @@
 export default {
    name: 'Disc',
    props:{
-      //discs: Array
-      //disc: Object
+      disc: Object
    }
 }
 </script>

@@ -21,7 +21,7 @@ export default {
 
    .loader {
       padding-top: 20%;
-
+      color: $title-color;
       .lds-hourglass {
       display: inline-block;
       position: relative;
@@ -36,8 +36,8 @@ export default {
       height: 0;
       margin: 8px;
       box-sizing: border-box;
-      border: 32px solid $main-color;
-      border-color: $main-color transparent $main-color transparent;
+      border: 32px solid $subtitle-color;
+      border-color: $subtitle-color transparent $subtitle-color transparent;
       animation: lds-hourglass 1.2s infinite;
       }
       @keyframes lds-hourglass {
