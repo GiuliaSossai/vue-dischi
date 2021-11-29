@@ -17,32 +17,38 @@
 import axios from 'axios';
 import Disc from './Disc.vue';
 import Loading from './Loading.vue';
-//import Header from './Header.vue';
 
 export default {
    name: 'MusicList',
+   props:{
+      typeGenre: String
+   },
    components: {
       Disc,
-      Loading
-      
+      Loading   
    },
 
    data(){
       return{
          discs: [],
          loaded: false,
-         apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
-         selectedGenre: ''
+         apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music'
       }
    },
 
    computed:{
       filteredMusic(){
-         const discsFiltered = this.discs.filter( album => {
-            return album.genre.toUpperCase().includes(this.selectedGenre.toUpperCase());
-         });
-         console.log('array filtrato', discsFiltered);
-         return discsFiltered;
+         if(this.typeGenre == "" || this.typeGenre == "Tutti"){
+          return this.discs;
+         } else {
+            let discsFiltered = this.discs.filter( album => {
+               return album.genre.toUpperCase().includes(this.typeGenre.toUpperCase());
+            });
+
+            console.log('array filtrato', discsFiltered);
+            return discsFiltered;
+         }
+           
       }
    },
 

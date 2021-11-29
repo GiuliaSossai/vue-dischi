@@ -3,7 +3,7 @@
     <Header @fromHeader="takeGenre"/>
     
     <div class="container">
-      <MusicList />
+      <MusicList :typeGenre="appGenre"/>
     </div>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
   methods: {
       takeGenre(headerGenre){
         this.appGenre = headerGenre;
-        console.log('genere scelto in app', this.appGenre);  
+        console.log('genere in app', this.appGenre);  
       }
    }
 }

@@ -28,10 +28,9 @@ export default {
    methods: {
       chooseGenre(selectedGenre){
          this.selection = selectedGenre;
-         console.log('genere scelto in header', this.selection);
+         console.log('genere in header', this.selection);
          
-         return this.$emit('fromHeader', this.selection);
-         //return this.selection;
+         this.$emit('fromHeader', this.selection);
       }
    }
 }
