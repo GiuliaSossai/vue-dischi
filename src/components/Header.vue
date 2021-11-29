@@ -1,11 +1,11 @@
 <template>
-  <header @selectGenre="chooseGenre">
+  <header >
      <div class="container-fluid d-flex justify-content-between">
         <div class="logo-img">
            <img src="../assets/img/logo.png" alt="">
         </div>
 
-        <Select />
+        <Select @selectGenre="chooseGenre" />
      </div>
   </header>
 </template>
@@ -29,7 +29,9 @@ export default {
       chooseGenre(selectedGenre){
          this.selection = selectedGenre;
          console.log('genere scelto in header', this.selection);
-         this.$emit('fromHeader', this.selection);
+         
+         return this.$emit('fromHeader', this.selection);
+         //return this.selection;
       }
    }
 }

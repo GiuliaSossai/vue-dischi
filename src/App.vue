@@ -19,11 +19,16 @@ export default {
     MusicList
   },
 
+  data(){
+    return {
+      appGenre: ''
+    }
+  },
+
   methods: {
       takeGenre(headerGenre){
-         this.appGenre = headerGenre;
-         console.log('genere scelto in app', this.appGenre);
-         //this.$emit('toHeader', this.appGenre);
+        this.appGenre = headerGenre;
+        console.log('genere scelto in app', this.appGenre);  
       }
    }
 }
