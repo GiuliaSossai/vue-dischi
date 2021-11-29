@@ -1,6 +1,6 @@
 <template>
   <div class="main-wrapper">
-    <Header />
+    <Header @fromHeader="takeGenre"/>
     
     <div class="container">
       <MusicList />
@@ -17,7 +17,15 @@ export default {
   components: {
     Header,
     MusicList
-  }
+  },
+
+  methods: {
+      takeGenre(headerGenre){
+         this.appGenre = headerGenre;
+         console.log('genere scelto in app', this.appGenre);
+         //this.$emit('toHeader', this.appGenre);
+      }
+   }
 }
 </script>
 

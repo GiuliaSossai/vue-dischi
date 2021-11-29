@@ -2,7 +2,7 @@
    <div>
       <div v-if="loaded"  class="row">
          <Disc 
-            v-for="(disc, index) in discs"
+            v-for="(disc, index) in filteredMusic"
             :key="index"
             :disc="disc"
          />  
@@ -17,20 +17,35 @@
 import axios from 'axios';
 import Disc from './Disc.vue';
 import Loading from './Loading.vue';
+//import Header from './Header.vue';
 
 export default {
    name: 'MusicList',
    components: {
       Disc,
       Loading
+      
    },
+
    data(){
       return{
          discs: [],
          loaded: false,
-         apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music'
+         apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
+         selectedGenre: ''
       }
    },
+
+   computed:{
+      filteredMusic(){
+         const discsFiltered = this.discs.filter( album => {
+            return album.genre.toUpperCase().includes(this.selectedGenre.toUpperCase());
+         });
+         console.log('array filtrato', discsFiltered);
+         return discsFiltered;
+      }
+   },
+
    methods:{
       getApi(){
          //this.loaded = true;
@@ -46,6 +61,7 @@ export default {
          })
       }
    },
+
    mounted(){
       console.log(axios);
       this.getApi();
